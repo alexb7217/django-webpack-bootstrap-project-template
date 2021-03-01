@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'manifest_loader',
 ]
 
 MIDDLEWARE = [
@@ -121,8 +122,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
 STATICFILES_DIRS = [
-    BASE_DIR / "main/static",
+    BASE_DIR / 'dist',
 ]
 # project root level static root
 STATIC_ROOT = BASE_DIR / 'staticfiles'
@@ -130,3 +132,17 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 # whitenoise staticfiles srotage
 if not DEBUG:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
+        },
+    },
+    'root': {
+        'handlers': ['console'],
+        'level': 'WARNING',
+    },
+}
