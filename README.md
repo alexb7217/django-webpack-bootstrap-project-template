@@ -28,9 +28,9 @@ django-admin startproject --template ~/project-name new_django_project .
 
 Remote use syntax:
 ```
-django-admin startproject --template https://github.com/username/repo/archive/master.zip --name=Procfile new_django_project
+django-admin startproject --template https://github.com/username/repo/archive/master.zip --name=Procfile,package.json new_django_project
 ```
-The `--name=Procfile bit tells the system to rename the Procfile properly
+The `--name=Procfile,package.json bit tells the system to rename Procfile and package.json files properly. For more, here is the documentation page: https://docs.djangoproject.com/en/2.2/ref/django-admin/#startproject
 
 ### Develop locally
 You may find anther way works better - however you can easily use the Pipenv created to create the project like:
