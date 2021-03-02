@@ -79,13 +79,13 @@ Do the usual git add / commit stuff after files are changed and ready.
 #### Basic Dokku setup on server
 ```
 $ dokku apps:create your_app
-# map your DNS to dokku*
+# map your DNS to dokku
 $ dokku domains:add your_app your_app.fqdn.net
-# set NPM_CONFIG_PRODUCTION to false to help Dokku run webpack**
+# set NPM_CONFIG_PRODUCTION to false to help Dokku run webpack
 $ dokku config:set your_app NPM_CONFIG_PRODUCTION=false
 ```
-* Note you may need to add the app to any subdomain DNS on your web host as well
-** See this issue report for all the gory details: https://github.com/dokku/dokku/issues/1434
+Note you may need to add the app to any subdomain DNS on your web host as well
+See this issue report for all the gory NPM_CONFIG_PRODUCTION details: https://github.com/dokku/dokku/issues/1434
 
 ```
 # after git init, add remote for dokku server
