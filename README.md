@@ -42,28 +42,29 @@ Install the node / npm dependencies:
 ```
 $ cd new_django_project/ # move into the project directory (where package.json is)
 $ npm i # that should do it
-
 ```
-
 The above will install the project requirements for deploying this very basic project. If other libraries are used in development or production - add them to requirements.txt for deployment as needed.
 
 ### Static Files
 Static files are pretty confusing. Whitenoise is an external Django library that makes it easier to use 1 server for both hosting Django and static files. Whitenoise requires and installed app and a layer of middleware to work correctly.
 
-The `collectstatic` command should create a staticfiles dir at the root level.
+Run webpack to generate static assets
+```
+$ npx webpack 
+```
 
+The `collectstatic` command should create a staticfiles dir at the root level, and relocate webpack static assets to Django staticfiles:
+```
+$ ./manage.py collectstatic
+```
+
+There is probably a less redundant way to accomplish this.
+
+### Deployment
 When the project is ready to deploy, use the following steps to deploy to a server running Dokku:
 
-You will need to initiaize the project with git, at some point. If you haven't already:
-```
-cd /path/to/new_django_project # (on the same level as manage.py)
-git init .
-
-```
 
 * Note - a `.gitignore` file is a good idea - especially for the `staticfiles` directory. This will be re-generated on the server, and will hold a potential ton of stuff you don't want to commit and deploy.
-
-In fact - this repo has a placeholder, reminder file `gitignore.txt` to convert into a `.gitignore` file. Use it.
 
 #### Changes to `settings.py`
 Don't forget to change the SECRET_KEY to something better - or better yet, add in an environment variable setting system.
