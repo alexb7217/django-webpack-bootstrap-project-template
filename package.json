@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-prod": "npx webpack"
+    "build-prod": "npx webpack",
+    "heroku-postbuild": "webpack"
   },
   "author": "ax",
   "license": "ISC",
