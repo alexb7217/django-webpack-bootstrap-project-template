@@ -1,6 +1,7 @@
-# Minimal Django Project Template
+# Django Webpack Bootstrap Project Template
+## Based onMinimal Django Project Template
 
-My attempt at creating the most bare-bones Django project possible, that is still ready to deploy to a Dokku server
+My attempt at creating the most bare-bones Django project possible, that is still ready to deploy to a Dokku server. Now with Bootstrap!&#8482;
 
 * Basic Django installation project with 1 app, 'main'
 * Runs on sqlite built in database
