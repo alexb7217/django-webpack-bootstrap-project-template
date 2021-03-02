@@ -63,7 +63,6 @@ There is probably a less redundant way to accomplish this.
 ### Deployment
 When the project is ready to deploy, use the following steps to deploy to a server running Dokku:
 
-
 * Note - a `.gitignore` file is a good idea - especially for the `staticfiles` directory. This will be re-generated on the server, and will hold a potential ton of stuff you don't want to commit and deploy.
 
 #### Changes to `settings.py`
@@ -74,11 +73,6 @@ Also important - set DEBUG to `False` for production deployment. This could also
 If you're deploying, add server to ALLOWED_HOSTS, something like:
 `- ALLOWED_HOSTS = [*]`
 `ALLOWED_HOSTS = ['127.0.0.1','your-fqdv.net']`
-
-#### Adjust Procfile
-If it wasn't set when the project was created, the default Procfile needs to be manually set to your project name: 
-`- web: gunicorn {{ project_name }}.wsgi --log-file `
-`+ web: gunicorn django-project-name.wsgi --log-file `
 
 Do the usual git add / commit stuff after files are changed and ready.
 
@@ -100,4 +94,3 @@ Should be ready to git push!
 
  TODO:
 - add a minimal environment variable setting system
-- add how-to for setting up dokku on a basic level
