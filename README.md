@@ -38,6 +38,12 @@ You may find anther way works better - however you can easily use the Pipenv cre
 ```
 $ pipenv install -r new_django_project/requirements.txt 
 ```
+Install the node / npm dependencies:
+```
+$ cd new_django_project/ # move into the project directory (where package.json is)
+$ npm i # that should do it
+
+```
 
 The above will install the project requirements for deploying this very basic project. If other libraries are used in development or production - add them to requirements.txt for deployment as needed.
 
